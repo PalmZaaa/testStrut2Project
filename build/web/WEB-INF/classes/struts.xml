@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.devMode" value="true" />
+   <package name="helloworld" extends="struts-default">
+     
+       <interceptors>
+           <interceptor name="myInterceptor" class="interceptor.Interceptor" /> 
+       </interceptors>
+       
+      <action name="hello" 
+            class="action.SampleAction" 
+            method="execute">
+            <!--<interceptor-ref name="myInterceptor" />-->
+            <result name="success">/sample.jsp</result>
+            <result name="error">/error.jsp</result>
+            
+      </action>
+      
+      <action name="upload" 
+            class="action.UploadAction" 
+            method="execute">
+            <!--<interceptor-ref name="myInterceptor" />-->
+            <result name="success">/uploadSuccess.jsp</result>
+            <result name="error">/error.jsp</result>
+            
+      </action>
+      
+   </package>
+   
+<!--    <struts>
+        <constant name="struts.custom.i18n.resources" value="global_en" />
+        <constant name="struts.custom.i18n.resources" value="global_th" />
+    </struts>-->
+</struts>
