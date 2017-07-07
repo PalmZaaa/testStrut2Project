@@ -16,16 +16,17 @@ import org.apache.commons.io.FileUtils;
 public class UploadAction extends ActionSupport{
     
     private File myFile;
-    String destPath = "D:/Tutotial";
-    String destFileName = "test.txt";
+   private String myFileContentType;
+   private String myFileFileName;
+   private String destPath;
         
     public String execute(){
         
         try{
-            
+            destPath = "D:/Tutotial";
             System.out.println(myFile.getName());
             System.out.println(myFile.getPath());
-            File destFile = new File(destPath, destFileName);
+            File destFile = new File(destPath, myFileFileName);
             FileUtils.copyFile(myFile, destFile);
             
             return "success";
@@ -54,13 +55,23 @@ public class UploadAction extends ActionSupport{
         this.destPath = destPath;
     }
 
-    public String getDestFileName() {
-        return destFileName;
+    public String getMyFileContentType() {
+        return myFileContentType;
     }
 
-    public void setDestFileName(String destFileName) {
-        this.destFileName = destFileName;
+    public void setMyFileContentType(String myFileContentType) {
+        this.myFileContentType = myFileContentType;
     }
+
+    public String getMyFileFileName() {
+        return myFileFileName;
+    }
+
+    public void setMyFileFileName(String myFileFileName) {
+        this.myFileFileName = myFileFileName;
+    }
+
+    
     
     
 }
